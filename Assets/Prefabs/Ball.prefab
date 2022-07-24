@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1414875890403758544
+--- !u!1 &6626722431581830709
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1414875890403758574}
-  - component: {fileID: 1414875890403758575}
-  - component: {fileID: 1414875890403758572}
-  - component: {fileID: 1414875890403758573}
-  - component: {fileID: 1414875890403758546}
-  - component: {fileID: 1414875890403758547}
+  - component: {fileID: 6626722431581830731}
+  - component: {fileID: 6626722431581830728}
+  - component: {fileID: 6626722431581830729}
+  - component: {fileID: 6626722431581830710}
+  - component: {fileID: 6626722431581830711}
+  - component: {fileID: -8599790864169238012}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1414875890403758574
+--- !u!4 &6626722431581830731
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414875890403758544}
+  m_GameObject: {fileID: 6626722431581830709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1414875890403758575
+--- !u!33 &6626722431581830728
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414875890403758544}
+  m_GameObject: {fileID: 6626722431581830709}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1414875890403758572
+--- !u!23 &6626722431581830729
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414875890403758544}
+  m_GameObject: {fileID: 6626722431581830709}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,45 +86,46 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1414875890403758573
+--- !u!135 &6626722431581830710
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414875890403758544}
+  m_GameObject: {fileID: 6626722431581830709}
   m_Material: {fileID: 13400000, guid: 09419bcb47be60f4986c277c252f7254, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1414875890403758546
+--- !u!54 &6626722431581830711
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414875890403758544}
+  m_GameObject: {fileID: 6626722431581830709}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 2
-  m_AngularDrag: 2
+  m_Drag: 0.25
+  m_AngularDrag: 0.01
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &1414875890403758547
+--- !u!114 &-8599790864169238012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414875890403758544}
+  m_GameObject: {fileID: 6626722431581830709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe7133b44f214c64d9b86a004296a0aa, type: 3}
+  m_Script: {fileID: 11500000, guid: fe4ea53f2f18c9b4f83baeb0b65ebe90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  ballVector3Speed: {x: 0, y: 0, z: 30}
+  health: 1
