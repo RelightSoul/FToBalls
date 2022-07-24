@@ -6,11 +6,12 @@ public class BallController : MonoBehaviour
 {
     private GameManager gameManager;
     private Rigidbody ballRb;
-    public Vector3 ballVector3Speed;
-    public Vector3 ballSpeedOffset;
-    private Vector3 ballSpeedIncrease = new Vector3(0f, 0f, 1f);
-    public int health;
+    private Vector3 ballSpeedOffset;
+    private Vector3 ballSpeedIncrease = new Vector3(0f, 0f, 2f);
     private const int scoreIncreaseByClick = 10;
+
+    public Vector3 ballVector3Speed;
+    public int health;
 
     private void Start()
     {

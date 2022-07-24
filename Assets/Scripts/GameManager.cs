@@ -7,11 +7,12 @@ public class GameManager : MonoBehaviour
     private SpawnManager spawnManager;
     private BallController ballController;
     private float difficultyTimeDicrease = 0.1f;
-    public int score;
+
+    public int Score { get; private set; }
 
     private void Start()
     {
-        score = 0;
+        Score = 0;
         spawnManager = FindObjectOfType<SpawnManager>();
         ballController = FindObjectOfType<BallController>();
 
@@ -35,6 +36,6 @@ public class GameManager : MonoBehaviour
 
     public void ScoreUpdate(int scoreIncrease)
     {
-        score += Mathf.RoundToInt(scoreIncrease * spawnManager.WaveScoreMultiply);
+        Score += Mathf.RoundToInt(scoreIncrease * spawnManager.WaveScoreMultiply);
     }
 }

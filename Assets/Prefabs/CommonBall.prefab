@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6626722431581830711}
   - component: {fileID: -8599790864169238012}
   m_Layer: 0
-  m_Name: Ball
+  m_Name: CommonBall
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4ea53f2f18c9b4f83baeb0b65ebe90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballVector3Speed: {x: 0, y: 0, z: 30}
+  ballVector3Speed: {x: 0, y: 0, z: 32}
   health: 1

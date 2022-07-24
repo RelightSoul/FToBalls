@@ -16,7 +16,6 @@ public class SpawnManager : MonoBehaviour
     private const float multiplyValue = 1.5f; 
     private int waveCount;
 
-    Collider[] colliders;
     Vector3 boxColliderChecker = new Vector3(7, 7, 7);
 
     void Start()

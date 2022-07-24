@@ -19,7 +19,7 @@ public class GameUIHandler : MonoBehaviour
 
     private void LateUpdate()
     {
-        scoreText.text = $"{gameManager.score}";
+        scoreText.text = $"{gameManager.Score}";
         multiplyText.text = $"x{Math.Round(spawnManager.WaveScoreMultiply,2)}";
     }
 }
