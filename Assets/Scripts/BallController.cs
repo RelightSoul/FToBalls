@@ -38,10 +38,13 @@ public class BallController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        gameManager.ScoreUpdate(scoreIncreaseByClick);
-        health--;
-        if (health == 0)
-            Destroy(gameObject);
+        if (!gameManager.GameIsOver)
+        {
+            gameManager.ScoreUpdate(scoreIncreaseByClick);
+            health--;
+            if (health == 0)
+                Destroy(gameObject);
+        }
     }
 
     void DestroyOnBorders()
