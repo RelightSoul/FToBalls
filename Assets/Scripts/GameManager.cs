@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private SpawnManager spawnManager;
     private BallController ballController;
-    private float difficultyTimeDicrease = 0.1f;
+    const float difficultyTimeDicrease = 0.1f;
 
     public int Score { get; private set; }
     public bool GameIsOver { get; private set; }

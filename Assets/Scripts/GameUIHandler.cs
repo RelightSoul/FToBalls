@@ -4,11 +4,13 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameUIHandler : MonoBehaviour
 {
     private GameManager gameManager;
     private SpawnManager spawnManager;
+
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI multiplyText;
     public TextMeshProUGUI ballsText;
@@ -36,5 +38,10 @@ public class GameUIHandler : MonoBehaviour
     {
         //SceneManager.LoadScene(0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
