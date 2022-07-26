@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -10,30 +9,21 @@ using TMPro;
 
 public class MenuUIHandler : MonoBehaviour
 {
-    private Button startButton;
-    private Button exitButton;
-
     public TextMeshProUGUI error_1Text;
     public TextMeshProUGUI error_2Text;
     public TextMeshProUGUI bestFiveText;
     public TMP_InputField nameInputField;
 
+    private const float displayDuration = 1.5f;
+    private const int maxNameLength = 16;
+
     private void Start()
     {
-        startButton = GameObject.Find("Start Button").GetComponent<Button>();
-        exitButton = GameObject.Find("Exit Button").GetComponent<Button>();
-
-        startButton.onClick.AddListener(StartGame);
-        exitButton.onClick.AddListener(ExitGame);
-
-        bestFiveText.text = $"\tTop-5" +
-            $"\n1 {DataManager.Instance.bestPlayerName} {DataManager.Instance.bestPlayerScore}";
+        bestFiveText.text = $"\tTop-5\n1 {DataManager.Instance.bestPlayerName} {DataManager.Instance.bestPlayerScore}";
     }
 
     public void StartGame()
     {
-        int maxNameLength = 16;
-
         if (nameInputField.text == "")
         {
             Error_1Message();
@@ -52,9 +42,7 @@ public class MenuUIHandler : MonoBehaviour
     }
 
     private void Error_1Message()
-    {
-        float displayDuration = 1.5f;
-
+    {   
         error_1Text.gameObject.SetActive(true);
         Invoke("Error_1Deactivate", displayDuration);
     }
@@ -65,8 +53,6 @@ public class MenuUIHandler : MonoBehaviour
 
     private void Error_2Message()
     {
-        float displayDuration = 1.5f;
-
         error_2Text.gameObject.SetActive(true);
         Invoke("Error_2Deactivate", displayDuration);
     }

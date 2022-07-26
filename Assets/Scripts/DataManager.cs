@@ -26,6 +26,7 @@ public class DataManager : MonoBehaviour
         LoadPlayer();
     }
 
+    [System.Serializable]
     class BestPlayer
     {
         public string name = "";
@@ -39,13 +40,15 @@ public class DataManager : MonoBehaviour
     }
 
     public void SavePlayer()
-    {        
-        BestPlayer player = new BestPlayer(playerName, playerScore);
+    {
+        if (playerScore > bestPlayerScore)
+        {
+            BestPlayer player = new BestPlayer(playerName, playerScore);
 
-        string json = JsonUtility.ToJson(player);
+            string json = JsonUtility.ToJson(player);
 
-        File.WriteAllText($"E:/UnityProjects/gamesave.json", json);
-        //File.WriteAllText(Application.persistentDataPath + "/gamesave.json", json);
+            File.WriteAllText($"E:/UnityProjects/gamesave.json", json);
+        }
     }
 
     public void LoadPlayer()

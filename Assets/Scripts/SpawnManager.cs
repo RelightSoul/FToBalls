@@ -4,30 +4,28 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public List<GameObject> ballsPrefabs = new List<GameObject>();
     private GameManager gameManager;
-
     float minBorderX = -52f;
     float maxBorderX = 50f;
     float minBorderZ = -23f;
     float maxBorderZ = 28f;
-    const float multiplyValue = 1.5f;
-
-    public float DicreaseSpawnTime { get; set; } = 0f;
-    public float WaveScoreMultiply { get; private set; } = 1;
-    public int WaveCount { get; private set; }
-    public GameObject[] balls;
-
-
     Vector3 boxColliderChecker = new Vector3(7, 7, 7);
+
+    public List<GameObject> ballsPrefabs = new List<GameObject>();
+    public GameObject[] balls;
+    public int WaveCount { get; private set; }
+    public float DicreaseSpawnTime { get; private set; } = 0f;
+    const float dicreaseInterval = 0.1f;
+    public float WaveScoreMultiply { get; private set; } = 1f;
+    const float multiplyValue = 1.5f;
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
         WaveCount = 0;
-        DicreaseSpawnTime = 0;
+        DicreaseSpawnTime = 0f;
 
-        Invoke("SpawnBalls", 0);
+        Invoke("SpawnBalls", 0f);
     }
 
     private void Update()
@@ -64,6 +62,17 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    bool CheckSpawnPos(Vector3 spawnPos)
+    {
+        Collider[] colliders;
+        colliders = Physics.OverlapBox(spawnPos, boxColliderChecker);
+        if (colliders.Length > 0)
+        {
+            return false;
+        }
+        return true;
+    }
+
     public void SpawnWave()
     {
         if (WaveCount > 0)
@@ -77,14 +86,8 @@ public class SpawnManager : MonoBehaviour
         WaveCount++;
     }
 
-    bool CheckSpawnPos(Vector3 spawnPos)
+    public void DicreaseSpawnInterval()
     {
-        Collider[] colliders;
-        colliders = Physics.OverlapBox(spawnPos, boxColliderChecker);
-        if (colliders.Length > 0)
-        {
-            return false;
-        }
-        return true;
+        DicreaseSpawnTime += dicreaseInterval;
     }
 }

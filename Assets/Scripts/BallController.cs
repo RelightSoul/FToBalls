@@ -10,6 +10,9 @@ public class BallController : MonoBehaviour
     private Vector3 ballSpeedOffset;
     private Vector3 ballSpeedIncrease = new Vector3(0f, 0f, 2f);
     private const int scoreIncreaseByClick = 10;
+    private const float borderRangeX = 66f;
+    private const float borderRangeY = 14f;
+    private const float borderRangeZ = 44f;
 
     public Vector3 ballVector3Speed;
     public int health;
@@ -42,7 +45,7 @@ public class BallController : MonoBehaviour
     {
         if (!gameManager.GameIsOver)
         {
-            DataManager.Instance.playerScore += Mathf.RoundToInt(scoreIncreaseByClick * spawnManager.WaveScoreMultiply);
+            ScoreUpdate();
             health--;
             if (health == 0)
                 Destroy(gameObject);
@@ -51,11 +54,6 @@ public class BallController : MonoBehaviour
 
     void DestroyOnBorders()
     {
-        float borderRangeX = 66f;
-        float borderRangeY = 14f;
-        float borderRangeZ = 44f;
-
-
         if (transform.position.x < -borderRangeX || transform.position.x > borderRangeX)
         {
             Destroy(gameObject);
@@ -73,5 +71,10 @@ public class BallController : MonoBehaviour
     public void SpeedIncrease()
     {
         ballSpeedOffset += ballSpeedIncrease;
+    }
+
+    void ScoreUpdate()
+    {
+        DataManager.Instance.playerScore += Mathf.RoundToInt(scoreIncreaseByClick * spawnManager.WaveScoreMultiply);
     }
 }
