@@ -5,6 +5,7 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     private GameManager gameManager;
+    private SpawnManager spawnManager;
     private Rigidbody ballRb;
     private Vector3 ballSpeedOffset;
     private Vector3 ballSpeedIncrease = new Vector3(0f, 0f, 2f);
@@ -17,6 +18,7 @@ public class BallController : MonoBehaviour
     {
         ballSpeedOffset = new Vector3(0f, 0f, 0f);
         gameManager = FindObjectOfType<GameManager>();
+        spawnManager = FindObjectOfType<SpawnManager>();
         ballRb = gameObject.GetComponent<Rigidbody>();
     }
 
@@ -40,7 +42,7 @@ public class BallController : MonoBehaviour
     {
         if (!gameManager.GameIsOver)
         {
-            gameManager.ScoreUpdate(scoreIncreaseByClick);
+            DataManager.Instance.playerScore += Mathf.RoundToInt(scoreIncreaseByClick * spawnManager.WaveScoreMultiply);
             health--;
             if (health == 0)
                 Destroy(gameObject);

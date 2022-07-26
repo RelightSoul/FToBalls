@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using System;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameUIHandler : MonoBehaviour
 {
@@ -24,7 +23,7 @@ public class GameUIHandler : MonoBehaviour
 
     private void LateUpdate()
     {
-        scoreText.text = $"{gameManager.Score}";
+        scoreText.text = $"{DataManager.Instance.playerScore}";
         multiplyText.text = $"x{Math.Round(spawnManager.WaveScoreMultiply,2)}";
         ballsText.text = $"{spawnManager.balls.Length}";
 
@@ -42,6 +41,7 @@ public class GameUIHandler : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        DataManager.Instance.LoadPlayer();
         SceneManager.LoadScene(0);
     }
 }
