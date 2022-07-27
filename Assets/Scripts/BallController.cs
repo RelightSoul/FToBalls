@@ -75,6 +75,6 @@ public class BallController : MonoBehaviour
 
     void ScoreUpdate()
     {
-        DataManager.Instance.playerScore += Mathf.RoundToInt(scoreIncreaseByClick * spawnManager.WaveScoreMultiply);
+        DataManager.Instance.PlayerScore += Mathf.RoundToInt(scoreIncreaseByClick * spawnManager.WaveScoreMultiply);
     }
 }

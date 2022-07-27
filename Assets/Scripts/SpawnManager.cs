@@ -9,7 +9,7 @@ public class SpawnManager : MonoBehaviour
     float maxBorderX = 50f;
     float minBorderZ = -23f;
     float maxBorderZ = 28f;
-    Vector3 boxColliderChecker = new Vector3(7, 7, 7);
+    Vector3 boxColliderChecker = new Vector3(2, 0, 2);
 
     public List<GameObject> ballsPrefabs = new List<GameObject>();
     public GameObject[] balls;
@@ -68,9 +68,9 @@ public class SpawnManager : MonoBehaviour
         colliders = Physics.OverlapBox(spawnPos, boxColliderChecker);
         if (colliders.Length > 0)
         {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     public void SpawnWave()

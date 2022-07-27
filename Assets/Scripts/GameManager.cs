@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        DataManager.Instance.playerScore = 0;
+        DataManager.Instance.PlayerScore = 0;
         GameIsOver = false;
         spawnManager = FindObjectOfType<SpawnManager>();
         ballController = FindObjectOfType<BallController>();

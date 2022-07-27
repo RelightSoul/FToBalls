@@ -19,7 +19,7 @@ public class MenuUIHandler : MonoBehaviour
 
     private void Start()
     {
-        bestFiveText.text = $"\tTop-5\n1 {DataManager.Instance.bestPlayerName} {DataManager.Instance.bestPlayerScore}";
+        bestFiveText.text = $"\tTop-5\n1 {DataManager.Instance.BestPlayerName} {DataManager.Instance.BestPlayerScore}";
     }
 
     public void StartGame()
@@ -36,7 +36,7 @@ public class MenuUIHandler : MonoBehaviour
         }
         else
         {
-            DataManager.Instance.playerName = nameInputField.text;
+            DataManager.Instance.PlayerName = nameInputField.text;
             SceneManager.LoadScene(1);
         }
     }

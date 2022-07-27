@@ -7,11 +7,11 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
 
-    public string playerName = "";
-    public int playerScore = 0;
+    public string PlayerName { get; set; } = "";
+    public int PlayerScore { get; set; } = 0;
 
-    public string bestPlayerName = "";
-    public int bestPlayerScore = 0;
+    public string BestPlayerName { get; set; } = "";
+    public int BestPlayerScore  { get; set; }= 0;
 
     private void Awake()
     {
@@ -41,9 +41,9 @@ public class DataManager : MonoBehaviour
 
     public void SavePlayer()
     {
-        if (playerScore > bestPlayerScore)
+        if (PlayerScore > BestPlayerScore)
         {
-            BestPlayer player = new BestPlayer(playerName, playerScore);
+            BestPlayer player = new BestPlayer(PlayerName, PlayerScore);
 
             string json = JsonUtility.ToJson(player);
 
@@ -60,8 +60,8 @@ public class DataManager : MonoBehaviour
             string json = File.ReadAllText(path);
             BestPlayer player = JsonUtility.FromJson<BestPlayer>(json);
 
-            bestPlayerName = player.name;
-            bestPlayerScore = player.score;
+            BestPlayerName = player.name;
+            BestPlayerScore = player.score;
         }
     }
 }
