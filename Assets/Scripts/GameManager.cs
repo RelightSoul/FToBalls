@@ -28,9 +28,9 @@ public class GameManager : MonoBehaviour
             spawnManager.DicreaseSpawnInterval();            
             spawnManager.SpawnWave();
         }
-        if (spawnManager.balls.Length >= maxBallsInGame)
+        if (spawnManager.balls.Length >= maxBallsInGame && !GameIsOver)
         {
-            DataManager.Instance.SavePlayer();
+            DataManager.Instance.SaveData();
             GameOver();
         }
     }

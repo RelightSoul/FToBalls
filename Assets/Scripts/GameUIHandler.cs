@@ -35,13 +35,12 @@ public class GameUIHandler : MonoBehaviour
 
     public void Restart()
     {
-        //SceneManager.LoadScene(0);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(0);
     }
 
     public void GoToMainMenu()
     {
-        DataManager.Instance.LoadPlayer();
+        DataManager.Instance.LoadData();
         SceneManager.LoadScene(0);
     }
 }

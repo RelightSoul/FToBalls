@@ -11,7 +11,7 @@ public class MenuUIHandler : MonoBehaviour
 {
     public TextMeshProUGUI error_1Text;
     public TextMeshProUGUI error_2Text;
-    public TextMeshProUGUI bestFiveText;
+    public TextMeshProUGUI bestPlayersText;
     public TMP_InputField nameInputField;
 
     private const float displayDuration = 1.5f;
@@ -19,7 +19,8 @@ public class MenuUIHandler : MonoBehaviour
 
     private void Start()
     {
-        bestFiveText.text = $"\tTop-5\n1 {DataManager.Instance.BestPlayerName} {DataManager.Instance.BestPlayerScore}";
+        nameInputField.text = DataManager.Instance.PlayerName;        
+        bestPlayersText.text = $"{DataManager.Instance.BestPlayersList()}";
     }
 
     public void StartGame()

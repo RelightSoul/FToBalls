@@ -6,12 +6,10 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
-
     public string PlayerName { get; set; } = "";
     public int PlayerScore { get; set; } = 0;
-
-    public string BestPlayerName { get; set; } = "";
-    public int BestPlayerScore  { get; set; }= 0;
+    private const int playersArrayCount = 5;
+    public PlayersData playersData;
 
     private void Awake()
     {
@@ -23,45 +21,69 @@ public class DataManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        LoadPlayer();
+        LoadData();
     }
 
     [System.Serializable]
-    class BestPlayer
+    public class BestPlayer : System.IComparable<BestPlayer>
     {
         public string name = "";
         public int score = 0;
 
-        public BestPlayer(string name, int score)
+        public int CompareTo(BestPlayer player)
         {
-            this.name = name;
-            this.score = score;
+            if (player is null)
+                throw new System.ArgumentException();
+            else
+                return score.CompareTo(player.score);
+        }
+    }    
+
+    [System.Serializable]
+    public class PlayersData
+    {
+        public BestPlayer[] playersArray;
+
+        public PlayersData()
+        {
+            playersArray = new BestPlayer[playersArrayCount];
         }
     }
 
-    public void SavePlayer()
+    public void SaveData()
     {
-        if (PlayerScore > BestPlayerScore)
+        if (PlayerScore > playersData.playersArray[playersArrayCount - 1].score)
         {
-            BestPlayer player = new BestPlayer(PlayerName, PlayerScore);
+            playersData.playersArray[playersArrayCount - 1].score = PlayerScore;
+            playersData.playersArray[playersArrayCount - 1].name = PlayerName;
 
-            string json = JsonUtility.ToJson(player);
-
-            File.WriteAllText($"E:/UnityProjects/gamesave.json", json);
-        }
+            PlayersData data = playersData;
+            string json = JsonUtility.ToJson(data);
+            File.WriteAllText($"E:/UnityProjects/datasave.json", json);
+        } 
     }
 
-    public void LoadPlayer()
+    public void LoadData()
     {
-        string path = $"E:/UnityProjects/gamesave.json";
+        string path = $"E:/UnityProjects/datasave.json";
 
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            BestPlayer player = JsonUtility.FromJson<BestPlayer>(json);
-
-            BestPlayerName = player.name;
-            BestPlayerScore = player.score;
+            playersData = JsonUtility.FromJson<PlayersData>(json);
+            System.Array.Sort<BestPlayer>(playersData.playersArray);
+            System.Array.Reverse<BestPlayer>(playersData.playersArray);
         }
+    }
+
+    public string BestPlayersList()
+    {
+        BestPlayer[] bests = playersData.playersArray;
+        string data = "\tTop5";
+        foreach (BestPlayer player in bests)
+        {
+            data += $"\n{player.name} {player.score}";
+        }
+        return data;
     }
 }
