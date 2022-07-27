@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 6719629009149610300}
   - component: {fileID: 7694432233603877231}
   - component: {fileID: 261117561956792770}
+  - component: {fileID: -6048852591987285183}
   m_Layer: 0
-  m_Name: MediumBall
+  m_Name: RedBall
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,5 +128,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4ea53f2f18c9b4f83baeb0b65ebe90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballVector3Speed: {x: 0, y: 0, z: 26}
+  ballSpeedOffset: {x: 0, y: 0, z: 0}
+  ballVector3Speed: {x: 0, y: 0, z: 28}
   health: 2
+--- !u!114 &-6048852591987285183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765791964322881698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f982715b05d84f34797889144f486499, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

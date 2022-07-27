@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -24,8 +25,8 @@ public class DataManager : MonoBehaviour
         LoadData();
     }
 
-    [System.Serializable]
-    public class BestPlayer : System.IComparable<BestPlayer>
+    [Serializable]
+    public class BestPlayer : IComparable<BestPlayer>
     {
         public string name = "";
         public int score = 0;
@@ -33,13 +34,13 @@ public class DataManager : MonoBehaviour
         public int CompareTo(BestPlayer player)
         {
             if (player is null)
-                throw new System.ArgumentException();
+                throw new ArgumentException();
             else
                 return score.CompareTo(player.score);
         }
     }    
 
-    [System.Serializable]
+    [Serializable]
     public class PlayersData
     {
         public BestPlayer[] playersArray;

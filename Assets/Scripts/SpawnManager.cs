@@ -12,6 +12,7 @@ public class SpawnManager : MonoBehaviour
     Vector3 boxColliderChecker = new Vector3(2, 0, 2);
 
     public List<GameObject> ballsPrefabs = new List<GameObject>();
+    public List<GameObject> powerUpPrefabs = new List<GameObject>();
     public GameObject[] balls;
     public int WaveCount { get; private set; }
     public float DicreaseSpawnTime { get; private set; } = 0f;
@@ -26,6 +27,7 @@ public class SpawnManager : MonoBehaviour
         DicreaseSpawnTime = 0f;
 
         Invoke("SpawnBalls", 0f);
+        Invoke("SpawnPowerUp", 10f);
     }
 
     private void Update()
@@ -41,7 +43,7 @@ public class SpawnManager : MonoBehaviour
 
             float randomSpawnDelay = Random.Range(1.2f - DicreaseSpawnTime, 2.4f - DicreaseSpawnTime);
             Invoke("SpawnBalls", randomSpawnDelay);
-        }
+        }        
     }
 
     void CreateBall()
@@ -59,6 +61,34 @@ public class SpawnManager : MonoBehaviour
         else
         {
             Instantiate(ballsPrefabs[randomIndex], randomPos, Quaternion.Euler(randomEulerAngles));
+        }
+    } 
+
+    void SpawnPowerUp()
+    {
+        if (!gameManager.GameIsOver)
+        {
+            CreatePowerUp();
+
+            float randomDelay = Random.Range(9f, 13f);
+            Invoke("SpawnPowerUp", randomDelay);
+        }
+    }
+    
+    void CreatePowerUp()
+    {
+        int randomIndex = Random.Range(0, powerUpPrefabs.Count);
+        Vector3 randomPos = new Vector3(Random.Range(minBorderX, maxBorderX), powerUpPrefabs[randomIndex].transform.position.y, Random.Range(minBorderZ, maxBorderZ));
+        float randomAngleY = Random.Range(0f, 360f);
+        Vector3 randomEulerAngles = new Vector3(transform.eulerAngles.x, randomAngleY, transform.eulerAngles.z);
+
+        if (CheckSpawnPos(randomPos))
+        {
+            CreatePowerUp();
+        }
+        else
+        {
+            Instantiate(powerUpPrefabs[randomIndex], randomPos, Quaternion.Euler(randomEulerAngles));
         }
     }
 
