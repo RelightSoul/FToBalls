@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 9172713897517760134}
   - component: {fileID: 9172713897517760135}
   - component: {fileID: 293661055232871471}
-  - component: {fileID: 9198139195350711036}
+  - component: {fileID: -8711442461830434241}
   m_Layer: 0
-  m_Name: Freeze
+  m_Name: FreezeBall
   m_TagString: PowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f982715b05d84f34797889144f486499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9198139195350711036
+--- !u!114 &-8711442461830434241
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,8 +137,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9172713897517760133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4ea53f2f18c9b4f83baeb0b65ebe90, type: 3}
+  m_Script: {fileID: 11500000, guid: 79c9b280afaf86746a26efdfc9af7188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballVector3Speed: {x: 0, y: 0, z: 40}
-  health: 3

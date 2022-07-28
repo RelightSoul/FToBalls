@@ -11,11 +11,12 @@ public class BallController : MonoBehaviour
     private Rigidbody ballRb;
     private Vector3 ballSpeedOffset;
     private Vector3 ballSpeedIncrease = new Vector3(0f, 0f, 3f);
+    private protected int clickDamage = 1;
 
     public Vector3 ballVector3Speed;
-    public int health;
+    private protected int health = 1;
 
-    private void Start()
+    private protected virtual void Start()
     {
         ballSpeedOffset = new Vector3(0f, 0f, 0f);
         gameManager = FindObjectOfType<GameManager>();
@@ -41,12 +42,12 @@ public class BallController : MonoBehaviour
         }
     }
 
-    private void OnMouseDown()
+    public virtual void OnMouseDown()
     {
         if (!gameManager.GameIsOver)
         {
             scoreManager.ScoreUpdate();
-            health--;
+            health -= clickDamage;
         }
     }
 

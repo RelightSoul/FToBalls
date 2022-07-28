@@ -2,12 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FBall : BallController
+public class FBall : PowerUpController
 {
-    private void OnDestroy()
+    private int fBallHealth = 1;
+
+    public override int Health { get => fBallHealth; set => fBallHealth = value; }
+
+    public override void OnMouseDown()
+    {
+        base.OnMouseDown();
+        DestroyBalls();
+    }
+
+    void DestroyBalls()
     {
         foreach (GameObject ball in spawnManager.balls)
         {
+            scoreManager.ScoreUpdate();
             Destroy(ball);
         }
     }

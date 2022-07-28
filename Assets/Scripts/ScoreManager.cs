@@ -7,13 +7,13 @@ public class ScoreManager : MonoBehaviour
     public float WaveScoreMultiply { get; private set; } = 1f;    
     const float waveMultiplyValue = 1.5f;
 
-    public float currentScoreByClick = 10f;
+    public float CurrentScoreByClick { get; set; } = 10f;
     const float scoreByClick = 10f;
 
     public void ScoreUpdate()
     {
         DataManager.Instance.PlayerScore += Mathf.RoundToInt(
-            currentScoreByClick * WaveScoreMultiply);
+            CurrentScoreByClick * WaveScoreMultiply);
     }
 
     public void WaveScoreUpdate()
@@ -27,9 +27,9 @@ public class ScoreManager : MonoBehaviour
     }
     public IEnumerator DeValue()
     {
-        float setConstDelay = 5f;
+        float buffTimer = 10f;
 
-        yield return new WaitForSeconds(setConstDelay);
-        currentScoreByClick = scoreByClick;
+        yield return new WaitForSeconds(buffTimer);
+        CurrentScoreByClick = scoreByClick;
     }
 }

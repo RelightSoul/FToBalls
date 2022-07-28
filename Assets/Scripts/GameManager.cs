@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private SpawnManager spawnManager;
     private BallController ballController;
-    const int maxBallsInGame = 20;
+    const int maxBallsInGame = 10;
 
     public bool GameIsOver { get; private set; }
 

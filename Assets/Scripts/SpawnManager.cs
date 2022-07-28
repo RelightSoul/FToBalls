@@ -42,7 +42,7 @@ public class SpawnManager : MonoBehaviour
         {
             CreateBall();
 
-            float randomSpawnDelay = Random.Range(1.2f - DicreaseSpawnTime, 2.4f - DicreaseSpawnTime);
+            float randomSpawnDelay = Random.Range(1.7f - DicreaseSpawnTime, 2.5f - DicreaseSpawnTime);
             Invoke("SpawnBalls", randomSpawnDelay);
         }        
     }

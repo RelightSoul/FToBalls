@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7897697955579116338}
   - component: {fileID: 7897697955579116339}
   - component: {fileID: 1640735154925144475}
-  - component: {fileID: 7445690975676873386}
+  - component: {fileID: 3997822419037379049}
   m_Layer: 0
   m_Name: OneClick
   m_TagString: PowerUp
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f982715b05d84f34797889144f486499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7445690975676873386
+--- !u!114 &3997822419037379049
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,8 +137,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7897697955579116337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4ea53f2f18c9b4f83baeb0b65ebe90, type: 3}
+  m_Script: {fileID: 11500000, guid: 0c60fe6560f97a846abcbf1848897f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ballVector3Speed: {x: 0, y: 0, z: 40}
-  health: 3
+  health: 1

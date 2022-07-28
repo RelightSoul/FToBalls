@@ -2,18 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MultyScore : BallController
+public class MultyScore : PowerUpController
 {
+    private int multyScoreHealth = 1;
     public const float multyValue = 2f;
 
-    private void OnMouseDown()
+    public override int Health { get => multyScoreHealth; set => multyScoreHealth = value; }
+
+    public override void OnMouseDown()
     {
-        if (!gameManager.GameIsOver)
-        {
-            scoreManager.ScoreUpdate();
-            health--;
-        }
-        scoreManager.currentScoreByClick *= multyValue;
+        base.OnMouseDown();
+        scoreManager.CurrentScoreByClick *= multyValue;
         scoreManager.SetConstValue();
     }
 }
