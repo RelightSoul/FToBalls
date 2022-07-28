@@ -28,7 +28,7 @@ public class SpawnManager : MonoBehaviour
         DicreaseSpawnTime = 0f;
 
         Invoke("SpawnBalls", 0f);
-        Invoke("SpawnPowerUp", 0f);
+        Invoke("SpawnPowerUp", 5f);
     }
 
     private void Update()

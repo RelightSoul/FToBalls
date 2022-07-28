@@ -11,9 +11,8 @@ public class BallController : MonoBehaviour
     private Rigidbody ballRb;
     private Vector3 ballSpeedOffset;
     private Vector3 ballSpeedIncrease = new Vector3(0f, 0f, 3f);
-    private protected int clickDamage = 1;
 
-    public Vector3 ballVector3Speed;
+    private protected Vector3 ballVector3Speed;
     private protected int health = 1;
 
     private protected virtual void Start()
@@ -30,7 +29,7 @@ public class BallController : MonoBehaviour
         if (health == 0)
             Destroy(gameObject);
 
-        ballRb.AddRelativeForce(ballVector3Speed + ballSpeedOffset, ForceMode.Acceleration);
+        ballRb.AddRelativeForce(GetSpeed(), ForceMode.Acceleration);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -38,7 +37,7 @@ public class BallController : MonoBehaviour
         if (!collision.gameObject.CompareTag("Ground"))
         {
             ContactPoint contactPoint = collision.contacts[0];
-            ballVector3Speed = Vector3.Reflect(ballVector3Speed + ballSpeedOffset, contactPoint.normal);
+            ballVector3Speed = Vector3.Reflect(GetSpeed(), contactPoint.normal);
         }
     }
 
@@ -47,12 +46,17 @@ public class BallController : MonoBehaviour
         if (!gameManager.GameIsOver)
         {
             scoreManager.ScoreUpdate();
-            health -= clickDamage;
+            health -= gameManager.ClickDamage;
         }
     }
 
     public void SpeedIncrease()
     {
         ballSpeedOffset += ballSpeedIncrease;
+    }
+
+    public Vector3 GetSpeed()
+    {        
+        return (ballVector3Speed + ballSpeedOffset) * FreezeBall.freeze;        
     }
 }

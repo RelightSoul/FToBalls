@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MultyScore : PowerUpController
+public class MultyScoreBall : PowerUpController
 {
     private int multyScoreHealth = 1;
     public const float multyValue = 2f;

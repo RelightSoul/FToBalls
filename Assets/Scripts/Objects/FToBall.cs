@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FBall : PowerUpController
+public class FToBall : PowerUpController
 {
     private int fBallHealth = 1;
 
