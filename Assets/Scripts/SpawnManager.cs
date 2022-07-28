@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     private GameManager gameManager;
+    private ScoreManager scoreManager;
+
     float minBorderX = -52f;
     float maxBorderX = 50f;
     float minBorderZ = -23f;
@@ -17,17 +19,16 @@ public class SpawnManager : MonoBehaviour
     public int WaveCount { get; private set; }
     public float DicreaseSpawnTime { get; private set; } = 0f;
     const float dicreaseInterval = 0.1f;
-    public float WaveScoreMultiply { get; private set; } = 1f;
-    const float multiplyValue = 1.5f;
 
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        scoreManager = FindObjectOfType<ScoreManager>();
         WaveCount = 0;
         DicreaseSpawnTime = 0f;
 
         Invoke("SpawnBalls", 0f);
-        Invoke("SpawnPowerUp", 10f);
+        Invoke("SpawnPowerUp", 0f);
     }
 
     private void Update()
@@ -70,7 +71,7 @@ public class SpawnManager : MonoBehaviour
         {
             CreatePowerUp();
 
-            float randomDelay = Random.Range(9f, 13f);
+            float randomDelay = Random.Range(10f, 12f);
             Invoke("SpawnPowerUp", randomDelay);
         }
     }
@@ -104,10 +105,10 @@ public class SpawnManager : MonoBehaviour
     }
 
     public void SpawnWave()
-    {
+    {        
         if (WaveCount > 0)
         {
-            WaveScoreMultiply *= multiplyValue;
+            scoreManager.WaveScoreUpdate();
         }
         CreateBall();
         CreateBall();

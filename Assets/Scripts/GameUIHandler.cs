@@ -9,6 +9,7 @@ public class GameUIHandler : MonoBehaviour
 {
     private GameManager gameManager;
     private SpawnManager spawnManager;
+    private ScoreManager scoreManager;
 
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI multiplyText;
@@ -19,12 +20,13 @@ public class GameUIHandler : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         spawnManager = FindObjectOfType<SpawnManager>();
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     private void LateUpdate()
     {
         scoreText.text = $"{DataManager.Instance.PlayerScore}";
-        multiplyText.text = $"x{Math.Round(spawnManager.WaveScoreMultiply,2)}";
+        multiplyText.text = $"x{Math.Round(scoreManager.WaveScoreMultiply,2)}";
         ballsText.text = $"{spawnManager.balls.Length}";
 
         if (gameManager.GameIsOver)

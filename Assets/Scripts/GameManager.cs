@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private SpawnManager spawnManager;
     private BallController ballController;
-    const int maxBallsInGame = 100;
+    const int maxBallsInGame = 20;
 
     public bool GameIsOver { get; private set; }
 
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         if (spawnManager.balls.Length == 0 && !GameIsOver)
         {
             ballController.SpeedIncrease();
-            spawnManager.DicreaseSpawnInterval();            
+            spawnManager.DicreaseSpawnInterval();
             spawnManager.SpawnWave();
         }
         if (spawnManager.balls.Length >= maxBallsInGame && !GameIsOver)
@@ -39,4 +39,5 @@ public class GameManager : MonoBehaviour
     {
         GameIsOver = true;
     }
+    
 }
