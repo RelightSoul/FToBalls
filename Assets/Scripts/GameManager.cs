@@ -6,13 +6,15 @@ public class GameManager : MonoBehaviour
 {
     private SpawnManager spawnManager;
     private BallController ballController;
-    const int maxBallsInGame = 10;
+    const int maxBallsInGame = 100;
     public int ClickDamage { get; set; } = 1;
 
+    public List<AudioClip> gameMusic;
     public bool GameIsOver { get; private set; }
 
     private void Start()
     {
+        GetRandomMusic();
         DataManager.Instance.PlayerScore = 0;
         GameIsOver = false;
         spawnManager = FindObjectOfType<SpawnManager>();
@@ -41,4 +43,9 @@ public class GameManager : MonoBehaviour
         GameIsOver = true;
     }
     
+    private void GetRandomMusic()
+    {
+        int randomClipIndex = Random.Range(0, gameMusic.Count);
+        gameObject.GetComponent<AudioSource>().PlayOneShot(gameMusic[randomClipIndex]);
+    }
 }

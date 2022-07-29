@@ -80,11 +80,11 @@ public class DataManager : MonoBehaviour
     public string BestPlayersList()
     {
         BestPlayer[] bests = playersData.playersArray;
-        string data = "\tTop5";
+        string data = "\tTop - 5";
         foreach (BestPlayer player in bests)
         {
             data += $"\n{player.name} {player.score}";
         }
         return data;
-    }
+    }    
 }
