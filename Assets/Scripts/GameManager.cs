@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private SpawnManager spawnManager;
     private BallController ballController;
-    const int maxBallsInGame = 10;
+    private const int maxBallsInGame = 10;
     public int ClickDamage { get; set; } = 1;
 
     public List<AudioClip> gameMusic;

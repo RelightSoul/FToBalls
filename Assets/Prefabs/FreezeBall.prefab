@@ -141,7 +141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballClickSound: {fileID: 0}
-  ballCollideSound: {fileID: 8300000, guid: 99348d26b121bdf40bca2ff30b000207, type: 3}
-  volume: 0.7
+  volume: 0.5
   freezeSound: {fileID: 8300000, guid: 5fe4bc0609c03e24097e0cb3666a4fb5, type: 3}
   freezeDuration: 3

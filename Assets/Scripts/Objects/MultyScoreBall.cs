@@ -7,8 +7,8 @@ public class MultyScoreBall : PowerUpController
 {
     private GameUIHandler gameUI;
     public AudioClip multyScoreSound;
-    public const float multyValue = 2f;
-    public float multyScoreDuration = 7f;
+    private const float multyValue = 2f;
+    private float multyScoreDuration = 7f;
 
     private protected override void Start()
     {

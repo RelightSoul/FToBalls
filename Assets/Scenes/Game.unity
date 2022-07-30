@@ -1649,7 +1649,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballClickSound: {fileID: 0}
-  clickVolume: 0.2
 --- !u!54 &581938588
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1694,7 +1693,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballClickSound: {fileID: 0}
-  clickVolume: 0.2
   volume: 0.6
 --- !u!1 &611201605
 GameObject:
@@ -2688,12 +2686,7 @@ MonoBehaviour:
   - {fileID: 1819382192300838434, guid: 91efe0322228b74449be72a0de448ac3, type: 3}
   powerUpPrefabs:
   - {fileID: 2906643006552863965, guid: c4fcf5e8d9ca95a48be800d653bbd96c, type: 3}
-  - {fileID: 2906643006552863965, guid: c4fcf5e8d9ca95a48be800d653bbd96c, type: 3}
-  - {fileID: 2906643006552863965, guid: c4fcf5e8d9ca95a48be800d653bbd96c, type: 3}
   - {fileID: 9172713897517760133, guid: 1603998dc43b4c342920a500cc5e4a21, type: 3}
-  - {fileID: 9172713897517760133, guid: 1603998dc43b4c342920a500cc5e4a21, type: 3}
-  - {fileID: 9172713897517760133, guid: 1603998dc43b4c342920a500cc5e4a21, type: 3}
-  - {fileID: 9057566528513225491, guid: 22298ce96526e944ebd8f0cea84da559, type: 3}
   - {fileID: 9057566528513225491, guid: 22298ce96526e944ebd8f0cea84da559, type: 3}
   balls: []
 --- !u!1 &1086287011
@@ -2983,7 +2976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1115684975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3449,7 +3442,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

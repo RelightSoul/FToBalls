@@ -5,7 +5,7 @@ using UnityEngine;
 public class FreezeBall : PowerUpController
 {
     public AudioClip freezeSound;
-    public float freezeDuration = 3f;    
+    private float freezeDuration = 3f;    
     public static float freeze = 1f;
 
     private protected override void OnMouseDown()
