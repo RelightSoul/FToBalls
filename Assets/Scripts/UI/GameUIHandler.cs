@@ -14,6 +14,7 @@ public class GameUIHandler : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI multiplyText;
     public TextMeshProUGUI ballsText;
+    public TextMeshProUGUI multyScoreText;
     public GameObject gameMenu;
 
     private void Start()

@@ -7,6 +7,8 @@ public class BallController : MonoBehaviour
     private protected GameManager gameManager;
     private protected ScoreManager scoreManager;
     private protected SpawnManager spawnManager;
+    [SerializeField] AudioClip ballClickSound;
+    private float clickVolume = 0.15f;
 
     private Rigidbody ballRb;
     private Vector3 ballSpeedOffset;
@@ -26,9 +28,6 @@ public class BallController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (health == 0)
-            Destroy(gameObject);
-
         ballRb.AddRelativeForce(GetSpeed(), ForceMode.Acceleration);
     }
 
@@ -37,16 +36,19 @@ public class BallController : MonoBehaviour
         if (!collision.gameObject.CompareTag("Ground"))
         {
             ContactPoint contactPoint = collision.contacts[0];
-            ballVector3Speed = Vector3.Reflect(GetSpeed(), contactPoint.normal);
+            ballVector3Speed = Vector3.Reflect(GetSpeed(), contactPoint.normal);           
         }
     }
 
-    public virtual void OnMouseDown()
+    private protected virtual void OnMouseDown()
     {
         if (!gameManager.GameIsOver)
         {
+            AudioSource.PlayClipAtPoint(ballClickSound, Camera.main.transform.position, clickVolume);
             scoreManager.ScoreUpdate();
             health -= gameManager.ClickDamage;
+            if (health == 0)
+                Destroy(gameObject);
         }
     }
 
@@ -55,7 +57,7 @@ public class BallController : MonoBehaviour
         ballSpeedOffset += ballSpeedIncrease;
     }
 
-    public Vector3 GetSpeed()
+    private Vector3 GetSpeed()
     {        
         return (ballVector3Speed + ballSpeedOffset) * FreezeBall.freeze;        
     }

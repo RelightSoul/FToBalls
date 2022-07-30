@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class FToBall : PowerUpController
 {
-    private int fBallHealth = 1;
+    public AudioClip fToBallSound;
 
-    public override int Health { get => fBallHealth; set => fBallHealth = value; }
-
-    public override void OnMouseDown()
+    private protected override void OnMouseDown()
     {
+        AudioSource.PlayClipAtPoint(fToBallSound, Camera.main.transform.position, volume);
         base.OnMouseDown();
-        DestroyBalls();
+        Invoke("DestroyBalls", 2.4f);
     }
 
     void DestroyBalls()

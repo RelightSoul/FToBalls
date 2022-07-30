@@ -21,15 +21,13 @@ public class ScoreManager : MonoBehaviour
         WaveScoreMultiply *= waveMultiplyValue;
     }
 
-    public void SetConstValue()
+    public void SetConstValue(float duration)
     {
-        StartCoroutine(DeValue());
+        StartCoroutine(DeValue(duration));
     }
-    public IEnumerator DeValue()
+    public IEnumerator DeValue(float duration)
     {
-        float buffTimer = 10f;
-
-        yield return new WaitForSeconds(buffTimer);
+        yield return new WaitForSeconds(duration);
         CurrentScoreByClick = scoreByClick;
     }
 }

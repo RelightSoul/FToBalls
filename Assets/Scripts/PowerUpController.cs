@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class PowerUpController : BallController
 {
-    public virtual int Health { get; set; }
-    private const float lifeTimer = 20f;
+    private const float lifeTimer = 24f;
     private const float activeTimer = 12f;
+    public float volume = 0.6f;
     private Vector3 PowerUpSpeed = new Vector3(0f, 0f, 40f);
 
     private protected override void Start()
     {
         ballVector3Speed = PowerUpSpeed;
-        health = Health;
         base.Start();
         PowerUpLifeTimer();
     }
 
-    public override void OnMouseDown()
+    private protected override void OnMouseDown()
     {
         if (!gameManager.GameIsOver)
         {
@@ -40,5 +39,5 @@ public class PowerUpController : BallController
     private void Deactivate()
     {
         gameObject.SetActive(false);
-    }    
+    } 
 }

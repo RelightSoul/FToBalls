@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class FreezeBall : PowerUpController
 {
-    private int freezeBallHealth = 1;
+    public AudioClip freezeSound;
+    public float freezeDuration = 3f;    
     public static float freeze = 1f;
 
-    public override int Health { get => freezeBallHealth; set => freezeBallHealth = value; }
-
-    public override void OnMouseDown()
+    private protected override void OnMouseDown()
     {
-        Freeze();
+        AudioSource.PlayClipAtPoint(freezeSound, Camera.main.transform.position, volume);
         base.OnMouseDown();
+        Invoke("Freeze", 1.5f);
     }
 
     public void Freeze()
     {
         freeze = 0f;
-        Invoke("Unfreeze", 3f);
+        Invoke("Unfreeze", freezeDuration);
     }
     void Unfreeze()
     {

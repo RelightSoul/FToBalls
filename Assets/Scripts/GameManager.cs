@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private SpawnManager spawnManager;
     private BallController ballController;
-    const int maxBallsInGame = 100;
+    const int maxBallsInGame = 10;
     public int ClickDamage { get; set; } = 1;
 
     public List<AudioClip> gameMusic;
@@ -47,5 +47,6 @@ public class GameManager : MonoBehaviour
     {
         int randomClipIndex = Random.Range(0, gameMusic.Count);
         gameObject.GetComponent<AudioSource>().PlayOneShot(gameMusic[randomClipIndex]);
+        Invoke("GetRandomMusic", gameMusic[randomClipIndex].length);
     }
 }

@@ -140,4 +140,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65c2b38b9db1f5a488dca99fa50846d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballVector3Speed: {x: 0, y: 0, z: 20}
+  ballClickSound: {fileID: 8300000, guid: a9e509d060a704852867d47a89e477a3, type: 3}
+  ballCollideSound: {fileID: 8300000, guid: 99348d26b121bdf40bca2ff30b000207, type: 3}

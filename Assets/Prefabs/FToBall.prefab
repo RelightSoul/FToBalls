@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c161a9c2c435774fb59fc33a15a974c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnManager: {fileID: 0}
-  ballVector3Speed: {x: 0, y: 0, z: 40}
-  health: 1
+  ballClickSound: {fileID: 0}
+  ballCollideSound: {fileID: 8300000, guid: 99348d26b121bdf40bca2ff30b000207, type: 3}
+  volume: 0.7
+  fToBallSound: {fileID: 8300000, guid: eec3bf121b316d64ca1c8aac7573a2f4, type: 3}
