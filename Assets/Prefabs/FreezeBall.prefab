@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 9172713897517760133}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.5, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 7}
+  m_LocalScale: {x: 6.5, y: 6.5, z: 6.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -143,4 +143,3 @@ MonoBehaviour:
   ballClickSound: {fileID: 0}
   volume: 0.5
   freezeSound: {fileID: 8300000, guid: 5fe4bc0609c03e24097e0cb3666a4fb5, type: 3}
-  freezeDuration: 3

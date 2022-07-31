@@ -27,7 +27,7 @@ public class GameUIHandler : MonoBehaviour
     private void LateUpdate()
     {
         scoreText.text = $"{DataManager.Instance.PlayerScore}";
-        multiplyText.text = $"x{Math.Round(scoreManager.WaveScoreMultiply,2)}";
+        multiplyText.text = $"x{Math.Round(scoreManager.WaveScoreMultiply,1)}";
         ballsText.text = $"{spawnManager.balls.Length}";
 
         if (gameManager.GameIsOver)

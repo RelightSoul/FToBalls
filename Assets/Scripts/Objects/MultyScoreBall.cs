@@ -24,14 +24,14 @@ public class MultyScoreBall : PowerUpController
 
     void GetMultyScore()
     {
-        scoreManager.CurrentScoreByClick *= multyValue;
-        scoreManager.SetConstValue(multyScoreDuration);
+        scoreManager.scoreByClick *= multyValue;
         gameUI.multyScoreText.gameObject.SetActive(true);
         Invoke("Deactive", multyScoreDuration);
     }
 
     void Deactive()
     {
+        scoreManager.scoreByClick /= multyValue;
         gameUI.multyScoreText.gameObject.SetActive(false);
     }
 }

@@ -60,13 +60,13 @@ public class DataManager : MonoBehaviour
 
             PlayersData data = playersData;
             string json = JsonUtility.ToJson(data);
-            File.WriteAllText($"E:/UnityProjects/datasave.json", json);
+            File.WriteAllText(Application.persistentDataPath + "/gamesaves.json", json);
         } 
     }
 
     public void LoadData()
     {
-        string path = $"E:/UnityProjects/datasave.json";
+        string path = Application.persistentDataPath + "/gamesaves.json";
 
         if (File.Exists(path))
         {

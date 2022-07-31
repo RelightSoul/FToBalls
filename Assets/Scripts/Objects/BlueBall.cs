@@ -5,7 +5,7 @@ using UnityEngine;
 public class BlueBall : BallController
 {
     private int blueBallHealth = 3;
-    Vector3 blueBallVector3Speed = new Vector3(0, 0, 20f);
+    Vector3 blueBallVector3Speed = new Vector3(0, 0, 24f);
 
     private protected override void Start()
     {
