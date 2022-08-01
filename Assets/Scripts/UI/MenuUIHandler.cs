@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 #if UNITY_EDITOR
 using UnityEditor;
-using TMPro;
 #endif
 
 public class MenuUIHandler : MonoBehaviour
 {
-    public TextMeshProUGUI error_1Text;
-    public TextMeshProUGUI error_2Text;
-    public TextMeshProUGUI bestPlayersText;
-    public TextMeshProUGUI gameRulesText;
-    public Button rulesButton;
-    public Button scoreButton;
-    public TMP_InputField nameInputField;
-    public GameObject placeholder;
+    [SerializeField] TextMeshProUGUI error_1Text;
+    [SerializeField] TextMeshProUGUI error_2Text;
+    [SerializeField] TextMeshProUGUI bestPlayersText;
+    [SerializeField] TextMeshProUGUI gameRulesText;
+    [SerializeField] Button rulesButton;
+    [SerializeField] Button scoreButton;
+    [SerializeField] TMP_InputField nameInputField;
+    [SerializeField] GameObject placeholder;
 
     private const float displayDuration = 1.5f;
     private const int maxNameLength = 16;

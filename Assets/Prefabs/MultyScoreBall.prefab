@@ -141,5 +141,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballClickSound: {fileID: 0}
-  volume: 0.5
+  volume: 0.45
   multyScoreSound: {fileID: 8300000, guid: 34f9cbd28a9740349b6cc2f5e280dda3, type: 3}
